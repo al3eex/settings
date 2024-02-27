@@ -1,3 +1,19 @@
+" Install vim-plug if not found
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+endif
+
+" Run PlugInstall if there are missing plugins
+autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+  \| PlugInstall --sync | source $MYVIMRC
+\| endif
+
+call plug#begin()
+    Plug 'https://github.com/ericbn/vim-solarized'
+    Plug 'https://github.com/tpope/vim-commentary'
+call plug#end()
+
 " ---------- GENERAL SETTINGS  ----------
 filetype plugin indent on
 
@@ -19,11 +35,14 @@ set virtualedit=block " Enable free-range cursor
 set display+=lastline " Always try to show a paragraph's last line
 
 syntax on
-set termguicolors
-colors lunaperche
+colors solarized
+set bg=light
 set cursorline " Highlight cursor line
 set showmatch  " highlight matching brace
 set nu         " Turn on the line numbers
+
+set guifont=Menlosevka++:h14
+set guioptions-=r
 
 set hlsearch     " Highlight all search results
 set smartcase    " Enable smart-case search
