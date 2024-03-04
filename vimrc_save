@@ -11,6 +11,7 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 
 call plug#begin()
     Plug 'https://github.com/ericbn/vim-solarized'
+    Plug 'https://github.com/chriskempson/vim-tomorrow-theme'
     Plug 'https://github.com/tpope/vim-commentary'
 call plug#end()
 
@@ -26,25 +27,27 @@ set fileformats=unix,mac
 set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=utf-8
-set splitbelow splitright " Sane splitting
 set title      " Set title of a window to filename
 set noswapfile " Prevent vim from creating .swp files
 
+set splitbelow splitright " Sane splitting
+
 set wrap
 set linebreak    " Break lines at word (requires Wrap lines)
-set showbreak=❡  " Line break symbols
+set showbreak=↓  " Line break symbols
 set virtualedit=block " Enable free-range cursor
 set display+=lastline " Always try to show a paragraph's last line
 
 syntax on
-colors default
+colors Tomorrow-Night-Bright 
 set bg=dark
+set cursorline
 set showmatch  " Highlight matching brackets
 set nu         " Turn on the line numbers
-" set cursorline " Highlight cursor line
 
-set guifont=Menlosevka++:h16 " Set GUI Font
-set guioptions-=r            " Disables right scrollbar in MacVim
+set guifont=Monoid_Retina:h16 " Set GUI Font
+set guioptions-=r " Disables right scrollbar in MacVim
+set guioptions-=l " Disables right scrollbar in MacVim
 
 set hlsearch     " Highlight all search results
 set smartcase    " Enable smart-case search
@@ -61,7 +64,7 @@ set shiftwidth=4 " Arrow function (>>) creates 4 spaces
 set softtabstop=4
 set tabstop=4    " Tab equal 4 spaces
 set shiftround   " Shift to the next round tab stop. Aka When at 3 spaces
-                 " hit >> to go to 4, not 5 if your shiftwidth is set to 2.
+                 " hit >> to go to 4, not 5 if your shiftwidth is set to 4.
 
 set autoindent  " Auto-indent new lines
 set smartindent " Enable smart-indent
