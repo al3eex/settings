@@ -10,8 +10,9 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 \| endif
 
 call plug#begin()
+    Plug 'https://github.com/habamax/vim-gruvbit'
     Plug 'https://github.com/ericbn/vim-solarized'
-    Plug 'https://github.com/chriskempson/vim-tomorrow-theme'
+    Plug 'https://github.com/nanotech/jellybeans.vim'
     Plug 'https://github.com/tpope/vim-commentary'
 call plug#end()
 
@@ -35,17 +36,29 @@ set splitbelow splitright " Sane splitting
 set wrap
 set linebreak    " Break lines at word (requires Wrap lines)
 set showbreak=↓  " Line break symbols
-set virtualedit=block " Enable free-range cursor
+set virtualedit=all   " Enable free-range cursor
 set display+=lastline " Always try to show a paragraph's last line
 
 syntax on
-colors Tomorrow-Night-Bright 
+let g:jellybeans_use_term_italics = 1
+set termguicolors
+let g:jellybeans_overrides = {
+\    'background': { 'ctermbg': 'none', '256ctermbg': 'none' },
+\}
+if has('termguicolors') && &termguicolors
+    let g:jellybeans_overrides['background']['guibg'] = 'none'
+endif
+colors jellybeans
 set bg=dark
+" if has("gui_running")
+"     colors habamax 
+"     set bg=dark
+" endif
 set cursorline
 set showmatch  " Highlight matching brackets
 set nu         " Turn on the line numbers
 
-set guifont=Monoid_Retina:h16 " Set GUI Font
+set guifont=IBM_Plex_Mono:h18 " Set GUI Font
 set guioptions-=r " Disables right scrollbar in MacVim
 set guioptions-=l " Disables right scrollbar in MacVim
 
