@@ -10,12 +10,15 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 \| endif
 
 call plug#begin()
-    Plug 'https://github.com/lifepillar/vim-solarized8'
     Plug 'https://github.com/kkga/vim-envy'
     Plug 'https://github.com/habamax/vim-gruvbit'
     Plug 'https://github.com/nanotech/jellybeans.vim'
+    Plug 'https://github.com/lifepillar/vim-solarized8'
+    Plug 'https://github.com/lunacookies/vim-colors-xcode'
+    Plug 'https://github.com/ap/vim-css-color'
     Plug 'https://github.com/tpope/vim-commentary'
     Plug 'https://github.com/ntpeters/vim-better-whitespace'
+    Plug 'https://github.com/cherryramatisdev/theme-sync.vim'
 call plug#end()
 
 " ---------- GENERAL SETTINGS  ----------
@@ -44,12 +47,14 @@ set display+=lastline " Always try to show a paragraph's last line
 syntax on
 let g:jellybeans_use_term_italics = 1
 set termguicolors
-colors envy
-set bg=light
-if has("gui_running")
-    colors envy
-    set bg=light
-endif
+let g:theme_sync_light_colorscheme = 'envy'
+let g:theme_sync_dark_colorscheme = 'xcodedarkhc'
+" colors envy
+" set bg=light
+" if has("gui_running")
+"     colors envy
+"     set bg=light
+" endif
 set cursorline
 set showmatch  " Highlight matching brackets
 set nu         " Turn on the line numbers
