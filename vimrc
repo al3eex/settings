@@ -21,6 +21,7 @@ call plug#begin()
     " Plug 'https://github.com/cherryramatisdev/theme-sync.vim'
     " let g:theme_sync_light_colorscheme = 'solarized8_high'
     " let g:theme_sync_dark_colorscheme = 'xcodedarkhc'
+    Plug 'https://github.com/chriskempson/vim-tomorrow-theme'
 call plug#end()
 
 " ---------- GENERAL SETTINGS  ----------
@@ -48,9 +49,7 @@ set display+=lastline " Always try to show a paragraph's last line
 
 syntax on
 let g:jellybeans_use_term_italics = 1
-set termguicolors
 colors default
-set bg=dark
 " colors envy
 " set bg=light
 " if has("gui_running")
