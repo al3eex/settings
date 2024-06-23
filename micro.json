@@ -1,7 +1,7 @@
 {
     "autosu": true,
     "colorcolumn": 80,
-    "colorscheme": "gruvbox",
+    "colorscheme": "geany",
     "diffgutter": true,
     "ftoptions": false,
     "hlsearch": true,
